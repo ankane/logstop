@@ -17,7 +17,7 @@ By default, scrubs:
 Works with all types of logging - Ruby, ActiveRecord, ActiveJob, and more
 
 ```
-User Load (0.1ms) SELECT "users".* FROM "users" WHERE "users"."email" = ? [["email", "[FILTERED]"]]
+User Load (0.1ms)  SELECT "users".* FROM "users" WHERE "users"."email" = ?  [["email", "[FILTERED]"]]
 ```
 
 ## Installation
