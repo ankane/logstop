@@ -28,8 +28,12 @@ class LogstopTest < Minitest::Test
     assert_filtered "127.0.0.1", ip: true
   end
 
+  def test_url_password
+    assert_filtered "https://user:pass@host", expected: "https://user:[FILTERED]@host"
+  end
+
   def test_multiple
-    assert_equal log("test@test.com test2@test.com 123456789"), "begin [FILTERED] [FILTERED] [FILTERED] end\n"
+    assert_filtered "test@test.com test2@test.com 123456789", expected: "[FILTERED] [FILTERED] [FILTERED]"
   end
 
   private
@@ -42,11 +46,11 @@ class LogstopTest < Minitest::Test
     str.string.split(" : ", 2)[-1]
   end
 
-  def assert_filtered(msg, **options)
-    assert_equal log(msg, **options), "begin [FILTERED] end\n"
+  def assert_filtered(msg, expected: "[FILTERED]", **options)
+    assert_equal "begin #{expected} end\n", log(msg, **options)
   end
 
   def refute_filtered(msg, **options)
-    assert_equal log(msg, **options), "begin #{msg} end\n"
+    assert_filtered msg, expected: msg, **options
   end
 end

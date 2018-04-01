@@ -13,6 +13,7 @@ By default, scrubs:
 - phone numbers
 - credit card numbers
 - Social Security numbers (SSNs)
+- passwords in urls [master]
 
 Works with all types of logging - Ruby, ActiveRecord, ActiveJob, and more
 
