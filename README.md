@@ -45,6 +45,12 @@ To scrub IP addresses, use:
 Logstop::Formatter.new(formatter, ip: true)
 ```
 
+To scrub outside of logging, use: [master]
+
+```ruby
+Logstop.scrub(msg)
+```
+
 ## Note
 
 This should be used in addition to `config.filtered_parameters`, not as a replacement.
