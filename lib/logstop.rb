@@ -13,7 +13,7 @@ module Logstop
   URL_PASSWORD_REGEX = /(\/\/\S+:)\S+@/
 
   def self.scrub(msg, ip: false)
-    if msg
+    unless msg.nil?
       msg = msg.to_s
 
       msg = msg.gsub(IP_REGEX, FILTERED_STR) if ip
