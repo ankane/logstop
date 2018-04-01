@@ -47,6 +47,8 @@ Logstop::Formatter.new(formatter, ip: true)
 
 This should be used in addition to `config.filtered_parameters`, not as a replacement.
 
+To scrub existing log files, check out [scrubadub](https://github.com/datascopeanalytics/scrubadub).
+
 ## Resources
 
 - [List of PII, as defined by NIST](https://en.wikipedia.org/wiki/Personally_identifiable_information#NIST_definition)
