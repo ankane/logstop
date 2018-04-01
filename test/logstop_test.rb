@@ -37,7 +37,7 @@ class LogstopTest < Minitest::Test
   end
 
   def test_scrub_nil
-    assert_nil Logstop.scrub(nil)
+    assert_equal "", Logstop.scrub(nil)
   end
 
   def test_multiple
