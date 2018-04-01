@@ -21,6 +21,8 @@ Works with all types of logging - Ruby, ActiveRecord, ActiveJob, and more
 User Load (0.1ms)  SELECT "users".* FROM "users" WHERE "users"."email" = ?  [["email", "[FILTERED]"]]
 ```
 
+[![Build Status](https://travis-ci.org/ankane/logstop.svg?branch=master)](https://travis-ci.org/ankane/logstop)
+
 ## Installation
 
 Add this line to your application’s Gemfile:
