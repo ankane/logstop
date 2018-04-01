@@ -32,6 +32,10 @@ class LogstopTest < Minitest::Test
     assert_filtered "https://user:pass@host", expected: "https://user:[FILTERED]@host"
   end
 
+  def test_scrub
+    assert_equal "[FILTERED]", Logstop.scrub("test@test.com")
+  end
+
   def test_multiple
     assert_filtered "test@test.com test2@test.com 123456789", expected: "[FILTERED] [FILTERED] [FILTERED]"
   end
