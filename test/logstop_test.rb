@@ -8,7 +8,8 @@ class LogstopTest < Minitest::Test
   def test_phone
     assert_filtered "555-555-5555"
     assert_filtered "555 555 5555"
-    assert_filtered "5555555555"
+    assert_filtered "555.555.5555"
+    refute_filtered "5555555555"
   end
 
   def test_credit_card
@@ -20,7 +21,7 @@ class LogstopTest < Minitest::Test
   def test_ssn
     assert_filtered "123-45-6789"
     assert_filtered "123 45 6789"
-    assert_filtered "123456789"
+    refute_filtered "123456789"
   end
 
   def test_ip
@@ -41,7 +42,7 @@ class LogstopTest < Minitest::Test
   end
 
   def test_multiple
-    assert_filtered "test@test.com test2@test.com 123456789", expected: "[FILTERED] [FILTERED] [FILTERED]"
+    assert_filtered "test@test.com test2@test.com 123-45-6789", expected: "[FILTERED] [FILTERED] [FILTERED]"
   end
 
   private
