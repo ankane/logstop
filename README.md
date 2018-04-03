@@ -13,7 +13,7 @@ By default, scrubs:
 - phone numbers
 - credit card numbers
 - Social Security numbers (SSNs)
-- passwords in urls [master]
+- passwords in urls
 
 Works with all types of logging - Ruby, ActiveRecord, ActiveJob, and more
 
@@ -45,7 +45,7 @@ To scrub IP addresses, use:
 Logstop::Formatter.new(formatter, ip: true)
 ```
 
-To scrub outside of logging, use: [master]
+To scrub outside of logging, use:
 
 ```ruby
 Logstop.scrub(msg)
