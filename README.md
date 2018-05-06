@@ -57,6 +57,8 @@ This should be used in addition to `config.filtered_parameters`, not as a replac
 
 To scrub existing log files, check out [scrubadub](https://github.com/datascopeanalytics/scrubadub).
 
+To anonymize IP addresses, check out [IP Anonymizer](https://github.com/ankane/ip_anonymizer).
+
 ## Resources
 
 - [List of PII, as defined by NIST](https://en.wikipedia.org/wiki/Personally_identifiable_information#NIST_definition)
