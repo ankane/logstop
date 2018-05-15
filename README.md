@@ -45,7 +45,7 @@ Create `config/initializers/logstop.rb` with:
 Rails.logger.formatter = Logstop::Formatter.new(Rails.logger.formatter)
 ```
 
-**Note:** In the Rails console with the default logger, logs show up unfiltered in STDOUT, but filtered in the log file.
+**Note:** In the Rails console with the default logger, logs show up unfiltered in STDOUT, but filtered in the log file. This is fixed on master.
 
 ## Options
 

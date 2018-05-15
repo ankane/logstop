@@ -1,4 +1,5 @@
 require "logstop/formatter"
+require "logstop/railtie" if defined?(Rails)
 require "logstop/version"
 
 module Logstop

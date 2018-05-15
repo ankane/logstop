@@ -1,3 +1,7 @@
+## 0.2.1 [unreleased]
+
+- Fix for log broadcaster in Rails console
+
 ## 0.2.0
 
 - Less aggressive filtering on numbers
