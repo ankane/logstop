@@ -37,6 +37,14 @@ And add it to your logger:
 logger.formatter = Logstop::Formatter.new(logger.formatter)
 ```
 
+For Rails, create `config/initializers/logstop.rb` with:
+
+```ruby
+Rails.logger.formatter = Logstop::Formatter.new(Rails.logger.formatter)
+```
+
+**Note:** In the Rails console, logs show up unfiltered in STDOUT, but filtered in the log file.
+
 ## Options
 
 To scrub IP addresses, use:
