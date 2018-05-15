@@ -23,7 +23,7 @@ module Logstop
       .gsub(CREDIT_CARD_REGEX, FILTERED_STR)
       .gsub(PHONE_REGEX, FILTERED_STR)
       .gsub(SSN_REGEX, FILTERED_STR)
-      .gsub(EMAIL_REGEX, FILTERED_STR)
       .gsub(URL_PASSWORD_REGEX, FILTERED_URL_STR)
+      .gsub(EMAIL_REGEX, FILTERED_STR)
   end
 end

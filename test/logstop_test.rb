@@ -31,6 +31,7 @@ class LogstopTest < Minitest::Test
 
   def test_url_password
     assert_filtered "https://user:pass@host", expected: "https://user:[FILTERED]@host"
+    assert_filtered "https://user:pass@host.com", expected: "https://user:[FILTERED]@host.com"
   end
 
   def test_scrub

@@ -1,6 +1,7 @@
 ## 0.2.1 [unreleased]
 
 - Fix for log broadcaster in Rails console
+- Fix for url password filtering
 
 ## 0.2.0
 
