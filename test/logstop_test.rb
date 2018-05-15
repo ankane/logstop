@@ -49,13 +49,13 @@ class LogstopTest < Minitest::Test
 
   def test_tagged_logging
     str = StringIO.new
-    logger = Logger.new(str)
+    logger = ActiveSupport::Logger.new(str)
     Logstop.guard(logger)
     logger = ActiveSupport::TaggedLogging.new(logger)
     logger.tagged("Ruby") do
       logger.info "begin test@test.com end"
     end
-    assert_equal "[Ruby] begin [FILTERED] end\n", str.string.split(" : ", 2)[-1]
+    assert_equal "[Ruby] begin [FILTERED] end\n", str.string
   end
 
   private
