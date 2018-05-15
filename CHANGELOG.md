@@ -1,3 +1,7 @@
+## 0.2.2 [unreleased]
+
+- Added `guard` method
+
 ## 0.2.1
 
 - Fix for log broadcaster in Rails console

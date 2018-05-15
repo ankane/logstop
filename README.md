@@ -34,7 +34,7 @@ gem 'logstop'
 And add it to your logger:
 
 ```ruby
-logger.formatter = Logstop::Formatter.new(logger.formatter)
+Logstop.guard(logger)
 ```
 
 ### Rails
@@ -42,17 +42,15 @@ logger.formatter = Logstop::Formatter.new(logger.formatter)
 Create `config/initializers/logstop.rb` with:
 
 ```ruby
-Rails.logger.formatter = Logstop::Formatter.new(Rails.logger.formatter)
+Logstop.guard(Rails.logger)
 ```
-
-**Note:** In the Rails console with the default logger, logs show up unfiltered in STDOUT, but filtered in the log file. This is fixed on master.
 
 ## Options
 
 To scrub IP addresses, use:
 
 ```ruby
-Logstop::Formatter.new(formatter, ip: true)
+Logstop.guard(logger, ip: true)
 ```
 
 To scrub outside of logging, use:

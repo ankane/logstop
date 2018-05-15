@@ -26,4 +26,8 @@ module Logstop
       .gsub(URL_PASSWORD_REGEX, FILTERED_URL_STR)
       .gsub(EMAIL_REGEX, FILTERED_STR)
   end
+
+  def self.guard(logger, **options)
+    logger.formatter = Logstop::Formatter.new(logger.formatter, **options)
+  end
 end

@@ -52,7 +52,7 @@ class LogstopTest < Minitest::Test
   def log(msg, **options)
     str = StringIO.new
     logger = Logger.new(str)
-    logger.formatter = Logstop::Formatter.new(logger.formatter, **options)
+    Logstop.guard(logger, **options)
     logger.info "begin #{msg} end"
     str.string.split(" : ", 2)[-1]
   end
