@@ -50,8 +50,8 @@ class LogstopTest < Minitest::Test
   def test_tagged_logging
     str = StringIO.new
     logger = ActiveSupport::Logger.new(str)
-    Logstop.guard(logger)
     logger = ActiveSupport::TaggedLogging.new(logger)
+    Logstop.guard(logger)
     logger.tagged("Ruby") do
       logger.info "begin test@test.com end"
     end

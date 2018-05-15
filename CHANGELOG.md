@@ -1,3 +1,7 @@
+## 0.2.3 [unreleased]
+
+- Fixed tagged logging
+
 ## 0.2.2
 
 - Added `guard` method
