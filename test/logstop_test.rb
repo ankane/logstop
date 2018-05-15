@@ -47,6 +47,17 @@ class LogstopTest < Minitest::Test
     assert_filtered "test@test.com test2@test.com 123-45-6789", expected: "[FILTERED] [FILTERED] [FILTERED]"
   end
 
+  def test_tagged_logging
+    str = StringIO.new
+    logger = Logger.new(str)
+    Logstop.guard(logger)
+    logger = ActiveSupport::TaggedLogging.new(logger)
+    logger.tagged("Ruby") do
+      logger.info "begin test@test.com end"
+    end
+    assert_equal "[Ruby] begin [FILTERED] end\n", str.string.split(" : ", 2)[-1]
+  end
+
   private
 
   def log(msg, **options)
