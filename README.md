@@ -37,7 +37,9 @@ And add it to your logger:
 logger.formatter = Logstop::Formatter.new(logger.formatter)
 ```
 
-For Rails, create `config/initializers/logstop.rb` with:
+### Rails
+
+Create `config/initializers/logstop.rb` with:
 
 ```ruby
 Rails.logger.formatter = Logstop::Formatter.new(Rails.logger.formatter)
