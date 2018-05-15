@@ -1,4 +1,4 @@
-## 0.2.1 [unreleased]
+## 0.2.1
 
 - Fix for log broadcaster in Rails console
 - Fix for url password filtering
