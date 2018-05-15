@@ -9,8 +9,8 @@ module Logstop
   CREDIT_CARD_REGEX = /\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/
   EMAIL_REGEX = /\b[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\b/i
   IP_REGEX = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/
-  PHONE_REGEX = /\b(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\b/i
-  SSN_REGEX = /\b\d{3}[\s-]\d{2}[\s-]\d{4}\b/i
+  PHONE_REGEX = /\b(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\b/
+  SSN_REGEX = /\b\d{3}[\s-]\d{2}[\s-]\d{4}\b/
   URL_PASSWORD_REGEX = /(\/\/\S+:)\S+@/
 
   def self.scrub(msg, ip: false)
