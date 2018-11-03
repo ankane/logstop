@@ -1,6 +1,6 @@
 ## 0.2.4 [unreleased]
 
-- Added support for custom rules
+- Added support for extra rules
 
 ## 0.2.3
 

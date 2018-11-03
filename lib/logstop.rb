@@ -13,7 +13,7 @@ module Logstop
   SSN_REGEX = /\b\d{3}[\s-]\d{2}[\s-]\d{4}\b/
   URL_PASSWORD_REGEX = /(\/\/\S+:)\S+@/
 
-  def self.scrub(msg, ip: false, rules: [])
+  def self.scrub(msg, ip: false, extra_rules: [])
     msg = msg.to_s
 
     msg = msg.gsub(IP_REGEX, FILTERED_STR) if ip
@@ -26,7 +26,7 @@ module Logstop
       .gsub(URL_PASSWORD_REGEX, FILTERED_URL_STR)
       .gsub(EMAIL_REGEX, FILTERED_STR)
 
-    rules.inject(msg) { |m, rule| m.gsub(rule, FILTERED_STR) }
+    extra_rules.inject(msg) { |m, rule| m.gsub(rule, FILTERED_STR) }
   end
 
   def self.guard(logger, **options)
