@@ -58,8 +58,9 @@ class LogstopTest < Minitest::Test
     assert_equal "[Ruby] begin [FILTERED] end\n", str.string
   end
 
-  def test_custom_rule
-    assert_filtered "hello", rules: [/hello/]
+  def test_rules
+    assert_filtered "hello", rules: [/hello/, /goodbye/]
+    assert_filtered "goodbye", rules: [/hello/, /goodbye/]
   end
 
   private
