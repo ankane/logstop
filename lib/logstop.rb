@@ -13,18 +13,20 @@ module Logstop
   SSN_REGEX = /\b\d{3}[\s-]\d{2}[\s-]\d{4}\b/
   URL_PASSWORD_REGEX = /(\/\/\S+:)\S+@/
 
-  def self.scrub(msg, ip: false)
+  def self.scrub(msg, ip: false, rules: [])
     msg = msg.to_s
 
     msg = msg.gsub(IP_REGEX, FILTERED_STR) if ip
 
     # order filters are applied is important
-    msg
+    msg = msg
       .gsub(CREDIT_CARD_REGEX, FILTERED_STR)
       .gsub(PHONE_REGEX, FILTERED_STR)
       .gsub(SSN_REGEX, FILTERED_STR)
       .gsub(URL_PASSWORD_REGEX, FILTERED_URL_STR)
       .gsub(EMAIL_REGEX, FILTERED_STR)
+
+    rules.inject(msg) { |m, rule| m.gsub(rule, FILTERED_STR) }
   end
 
   def self.guard(logger, **options)

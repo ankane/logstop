@@ -1,3 +1,7 @@
+## 0.2.4 [unreleased]
+
+- Added support for custom rules
+
 ## 0.2.3
 
 - Fixed tagged logging
