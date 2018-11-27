@@ -39,6 +39,11 @@ class LogstopTest < Minitest::Test
     assert_equal "[FILTERED]", Logstop.scrub("test@test.com")
   end
 
+  def test_scrub_with_key
+    assert_equal 'Started GET "/" for 131.76.35.185 at 2018-11-27 14:09:23 +0100',
+                 Logstop.scrub('Started GET "/" for 8.9.10.42 at 2018-11-27 14:09:23 +0100', ip: true, key: "1234567890")
+  end
+
   def test_scrub_nil
     assert_equal "", Logstop.scrub(nil)
   end

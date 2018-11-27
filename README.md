@@ -53,6 +53,15 @@ To scrub IP addresses, use:
 Logstop.guard(logger, ip: true)
 ```
 
+In case you want to preserve the connection between log entries,
+you can anonymize IP addresses via hashing
+(like the [ip_anonymizer](https://github.com/ankane/ip_anonymizer) gem).
+Just add a key (e.g. via ```SecureRandom.hex(32)```):
+
+```ruby
+Logstop.guard(logger, ip: true, key: "random_key")
+```
+
 Add extra rules with: [master]
 
 ```ruby

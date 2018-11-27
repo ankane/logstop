@@ -1,3 +1,6 @@
+require "ipaddr"
+require "openssl"
+
 require "logstop/formatter"
 require "logstop/railtie" if defined?(Rails)
 require "logstop/version"
@@ -13,10 +16,23 @@ module Logstop
   SSN_REGEX = /\b\d{3}[\s-]\d{2}[\s-]\d{4}\b/
   URL_PASSWORD_REGEX = /(\/\/\S+:)\S+@/
 
-  def self.scrub(msg, ip: false, extra_rules: [])
+  def self.hash_ip(ip, key:, iterations: 1)
+    addr = IPAddr.new(ip.to_s)
+    key_len = addr.ipv4? ? 4 : 16
+    family = addr.ipv4? ? Socket::AF_INET : Socket::AF_INET6
+
+    keyed_hash = OpenSSL::PKCS5.pbkdf2_hmac(addr.to_s, key, iterations, key_len, "sha256")
+    IPAddr.new(keyed_hash.bytes.inject {|a, b| (a << 8) + b}, family).to_s
+  end
+
+  def self.scrub(msg, ip: false, key: nil, extra_rules: [])
     msg = msg.to_s
 
-    msg = msg.gsub(IP_REGEX, FILTERED_STR) if ip
+    if ip && key && msg.match(IP_REGEX)
+      msg = msg.gsub(IP_REGEX, self.hash_ip(msg.match(IP_REGEX)[0], key: key))
+    elsif ip
+      msg = msg.gsub(IP_REGEX, FILTERED_STR)
+    end
 
     # order filters are applied is important
     msg = msg
