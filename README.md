@@ -65,13 +65,15 @@ To scrub outside of logging, use:
 Logstop.scrub(msg)
 ```
 
-## Note
+## Notes
 
 This should be used in addition to `config.filtered_parameters`, not as a replacement.
 
 To scrub existing log files, check out [scrubadub](https://github.com/datascopeanalytics/scrubadub).
 
 To anonymize IP addresses, check out [IP Anonymizer](https://github.com/ankane/ip_anonymizer).
+
+Learn more about [securing sensitive data in Rails](https://ankane.org/sensitive-data-rails).
 
 ## Resources
 
