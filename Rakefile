@@ -19,7 +19,7 @@ task :benchmark do
 
   str2 = StringIO.new
   logger2 = ::Logger.new(str2)
-  logger2.formatter = Logstop::Formatter.new
+  Logstop.guard(logger2)
 
   Benchmark.ips do |x|
     x.report "logger" do
