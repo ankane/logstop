@@ -46,7 +46,7 @@ namespace :benchmark do
     Logstop.guard(logger2)
 
     report = MemoryProfiler.report do
-      100.times do
+      1000.times do
         logger.info "This is a string: test@test.com"
       end
     end
