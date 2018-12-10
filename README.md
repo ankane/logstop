@@ -56,8 +56,8 @@ Logstop.guard(logger, ip: true)
 Add extra rules with: [master]
 
 ```ruby
-scrubber = lambda do |line|
-  line.gsub(/custom_regexp/, "[FILTERED]".freeze)
+scrubber = lambda do |msg|
+  msg.gsub(/custom_regexp/, "[FILTERED]".freeze)
 end
 
 Logstop.guard(logger, scrubber: scrubber)

@@ -59,8 +59,8 @@ class LogstopTest < Minitest::Test
   end
 
   def test_scubber
-    scubber = lambda do |line|
-      line.gsub(/hello/, "[FILTERED]")
+    scubber = lambda do |msg|
+      msg.gsub(/hello/, "[FILTERED]")
     end
 
     assert_filtered "hello", scrubber: scubber
