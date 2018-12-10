@@ -53,7 +53,7 @@ To scrub IP addresses, use:
 Logstop.guard(logger, ip: true)
 ```
 
-Add extra rules with: [master]
+Add custom rules with: [master]
 
 ```ruby
 scrubber = lambda do |msg|
