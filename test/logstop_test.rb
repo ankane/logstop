@@ -72,14 +72,14 @@ class LogstopTest < Minitest::Test
     str = "test@example.org"
     original_string = str.dup
     logger.info str
-    assert_equal str, original_string
+    assert_equal original_string, str
   end
 
   def test_scrub_immutable
     str = "test@example.org"
     original_string = str.dup
     Logstop.scrub(str)
-    assert_equal str, original_string
+    assert_equal original_string, str
   end
 
   private
