@@ -3,7 +3,7 @@
 :fire: Keep personally identifiable information (PII) out of your logs
 
 ```ruby
-logger.info "Hi test@test.com!"
+logger.info "Hi test@example.org!"
 # => Hi [FILTERED]!
 ```
 

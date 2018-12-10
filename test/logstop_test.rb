@@ -2,8 +2,8 @@ require_relative "test_helper"
 
 class LogstopTest < Minitest::Test
   def test_email
-    assert_filtered "test@test.com"
-    assert_filtered "TEST@test.com"
+    assert_filtered "test@example.org"
+    assert_filtered "TEST@example.org"
   end
 
   def test_phone
@@ -36,7 +36,7 @@ class LogstopTest < Minitest::Test
   end
 
   def test_scrub
-    assert_equal "[FILTERED]", Logstop.scrub("test@test.com")
+    assert_equal "[FILTERED]", Logstop.scrub("test@example.org")
   end
 
   def test_scrub_nil
@@ -44,7 +44,7 @@ class LogstopTest < Minitest::Test
   end
 
   def test_multiple
-    assert_filtered "test@test.com test2@test.com 123-45-6789", expected: "[FILTERED] [FILTERED] [FILTERED]"
+    assert_filtered "test@example.org test2@example.org 123-45-6789", expected: "[FILTERED] [FILTERED] [FILTERED]"
   end
 
   def test_tagged_logging
@@ -53,7 +53,7 @@ class LogstopTest < Minitest::Test
     logger = ActiveSupport::TaggedLogging.new(logger)
     Logstop.guard(logger)
     logger.tagged("Ruby") do
-      logger.info "begin test@test.com end"
+      logger.info "begin test@example.org end"
     end
     assert_equal "[Ruby] begin [FILTERED] end\n", str.string
   end
