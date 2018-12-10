@@ -66,6 +66,22 @@ class LogstopTest < Minitest::Test
     assert_filtered "hello", scrubber: scubber
   end
 
+  def test_formatter_immutable
+    logger = Logger.new(StringIO.new)
+    Logstop.guard(logger)
+    str = "test@example.org"
+    original_string = str.dup
+    logger.info str
+    assert_equal str, original_string
+  end
+
+  def test_scrub_immutable
+    str = "test@example.org"
+    original_string = str.dup
+    Logstop.scrub(str)
+    assert_equal str, original_string
+  end
+
   private
 
   def log(msg, **options)
