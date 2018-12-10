@@ -45,18 +45,24 @@ namespace :benchmark do
     logger2 = ::Logger.new(str2)
     Logstop.guard(logger2)
 
+    print_options = {
+      detailed_report: false,
+      allocated_strings: 0,
+      retained_strings: 0
+    }
+
     report = MemoryProfiler.report do
       1000.times do
         logger.info "This is a string: test@test.com"
       end
     end
-    report.pretty_print
+    report.pretty_print(print_options)
 
     report = MemoryProfiler.report do
       1000.times do
         logger2.info "This is a string: test@test.com"
       end
     end
-    report.pretty_print
+    report.pretty_print(print_options)
   end
 end
