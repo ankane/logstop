@@ -69,6 +69,8 @@ To scrub outside of logging, use:
 Logstop.scrub(msg)
 ```
 
+It supports the same options as `guard`.
+
 ## Notes
 
 This should be used in addition to `config.filtered_parameters`, not as a replacement.
