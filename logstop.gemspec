@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "activesupport"
   spec.add_development_dependency "benchmark-ips"
   spec.add_development_dependency "bundler"
+  spec.add_development_dependency "memory_profiler"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "rake"
 end
