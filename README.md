@@ -56,7 +56,11 @@ Logstop.guard(logger, ip: true)
 Add extra rules with: [master]
 
 ```ruby
-Logstop.guard(logger, extra_rules: [/regexp1/, /regexp2/])
+scrubber = lambda do |line|
+  line.gsub(/custom_regexp/, "[FILTERED]".freeze)
+end
+
+Logstop.guard(logger, scrubber: scrubber)
 ```
 
 To scrub outside of logging, use:

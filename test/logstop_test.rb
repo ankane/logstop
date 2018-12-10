@@ -58,9 +58,12 @@ class LogstopTest < Minitest::Test
     assert_equal "[Ruby] begin [FILTERED] end\n", str.string
   end
 
-  def test_extra_rules
-    assert_filtered "hello", extra_rules: [/hello/, /goodbye/]
-    assert_filtered "goodbye", extra_rules: [/hello/, /goodbye/]
+  def test_scubber
+    scubber = lambda do |line|
+      line.gsub(/hello/, "[FILTERED]")
+    end
+
+    assert_filtered "hello", scrubber: scubber
   end
 
   private
