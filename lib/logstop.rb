@@ -14,17 +14,16 @@ module Logstop
   URL_PASSWORD_REGEX = /(\/\/\S+:)\S+@/
 
   def self.scrub(msg, ip: false, scrubber: nil)
-    msg = msg.to_s
+    msg = String.new(msg.to_s)
 
-    msg = msg.gsub(IP_REGEX, FILTERED_STR) if ip
+    msg.gsub!(IP_REGEX, FILTERED_STR) if ip
 
     # order filters are applied is important
-    msg = msg
-      .gsub(CREDIT_CARD_REGEX, FILTERED_STR)
-      .gsub(PHONE_REGEX, FILTERED_STR)
-      .gsub(SSN_REGEX, FILTERED_STR)
-      .gsub(URL_PASSWORD_REGEX, FILTERED_URL_STR)
-      .gsub(EMAIL_REGEX, FILTERED_STR)
+    msg.gsub!(CREDIT_CARD_REGEX, FILTERED_STR)
+    msg.gsub!(PHONE_REGEX, FILTERED_STR)
+    msg.gsub!(SSN_REGEX, FILTERED_STR)
+    msg.gsub!(URL_PASSWORD_REGEX, FILTERED_URL_STR)
+    msg.gsub!(EMAIL_REGEX, FILTERED_STR)
 
     msg = scrubber.call(msg) if scrubber
 
