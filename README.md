@@ -13,13 +13,15 @@ By default, scrubs:
 - phone numbers
 - credit card numbers
 - Social Security numbers (SSNs)
-- passwords in urls
+- passwords in URLs
 
 Works with all types of logging - Ruby, ActiveRecord, ActiveJob, and more
 
 ```
 User Load (0.1ms)  SELECT "users".* FROM "users" WHERE "users"."email" = ?  [["email", "[FILTERED]"]]
 ```
+
+Works even when sensitive data is URL-encoded
 
 [![Build Status](https://travis-ci.org/ankane/logstop.svg?branch=master)](https://travis-ci.org/ankane/logstop)
 

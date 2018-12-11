@@ -1,7 +1,7 @@
 ## 0.2.4 [unreleased]
 
 - Added `scubber` option for custom rules
-- Scrub url encoded data
+- Scrub URL-encoded data
 
 ## 0.2.3
 
@@ -14,12 +14,12 @@
 ## 0.2.1
 
 - Fix for log broadcaster in Rails console
-- Fix for url password filtering
+- Fix for URL password filtering
 
 ## 0.2.0
 
 - Less aggressive filtering on numbers
-- Filter passwords in urls
+- Filter passwords in URLs
 - Added `Logstop.scrub` method
 
 ## 0.1.0
