@@ -16,15 +16,15 @@ module Logstop
   def self.scrub(msg, ip: false, scrubber: nil)
     msg = msg.to_s
 
-    msg = msg.gsub(IP_REGEX, FILTERED_STR) if ip
-
     # order filters are applied is important
     msg = msg
+      .gsub(URL_PASSWORD_REGEX, FILTERED_URL_STR)
+      .gsub(EMAIL_REGEX, FILTERED_STR)
       .gsub(CREDIT_CARD_REGEX, FILTERED_STR)
       .gsub(PHONE_REGEX, FILTERED_STR)
       .gsub(SSN_REGEX, FILTERED_STR)
-      .gsub(URL_PASSWORD_REGEX, FILTERED_URL_STR)
-      .gsub(EMAIL_REGEX, FILTERED_STR)
+
+    msg = msg.gsub(IP_REGEX, FILTERED_STR) if ip
 
     msg = scrubber.call(msg) if scrubber
 

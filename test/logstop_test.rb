@@ -47,6 +47,11 @@ class LogstopTest < Minitest::Test
     assert_filtered "test@example.org test2@example.org 123-45-6789", expected: "[FILTERED] [FILTERED] [FILTERED]"
   end
 
+  def test_order
+    assert_filtered "123-45-6789@example.org"
+    assert_filtered "127.0.0.1@example.org", ip: true
+  end
+
   def test_tagged_logging
     str = StringIO.new
     logger = ActiveSupport::Logger.new(str)
