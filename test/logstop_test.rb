@@ -4,6 +4,7 @@ class LogstopTest < Minitest::Test
   def test_email
     assert_filtered "test@example.org"
     assert_filtered "TEST@example.org"
+    assert_filtered "test%40example.org"
   end
 
   def test_phone
