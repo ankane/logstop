@@ -4,7 +4,6 @@ class LogstopTest < Minitest::Test
   def test_email
     assert_filtered "test@example.org"
     assert_filtered "TEST@example.org"
-    assert_filtered "test%40example.org"
   end
 
   def test_phone
@@ -95,6 +94,7 @@ class LogstopTest < Minitest::Test
 
   def assert_filtered(msg, expected: "[FILTERED]", **options)
     assert_equal "begin #{expected} end\n", log(msg, **options)
+    assert_equal "begin #{expected} end\n", URI.decode_www_form_component(log(URI.encode_www_form_component(msg), **options))
   end
 
   def refute_filtered(msg, **options)

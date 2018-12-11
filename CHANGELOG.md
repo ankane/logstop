@@ -1,7 +1,7 @@
 ## 0.2.4 [unreleased]
 
 - Added `scubber` option for custom rules
-- Scrub url encoded email addresses
+- Scrub url encoded data
 
 ## 0.2.3
 
