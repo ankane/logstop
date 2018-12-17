@@ -1,6 +1,7 @@
 require "logstop/formatter"
 require "logstop/railtie" if defined?(Rails)
 require "logstop/version"
+require "resolv"
 
 module Logstop
   FILTERED_STR = "[FILTERED]".freeze
@@ -8,7 +9,7 @@ module Logstop
 
   CREDIT_CARD_REGEX = /\b\d{4}[\s+-]?\d{4}[\s+-]?\d{4}[\s+-]?\d{4}\b/
   EMAIL_REGEX = /\b[\w][\w+.-]+(@|%40)[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\b/i
-  IP_REGEX = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/
+  IP_REGEX = Regexp.new(Resolv::AddressRegex.source.gsub('\A', '\b').gsub('\z', '\b'))
   PHONE_REGEX = /\b(\+\d{1,2}\s)?\(?\d{3}\)?[\s+.-]\d{3}[\s+.-]\d{4}\b/
   SSN_REGEX = /\b\d{3}[\s+-]\d{2}[\s+-]\d{4}\b/
   URL_PASSWORD_REGEX = /((\/\/|%2F%2F)\S+(:|%3A))\S+(@|%40)/

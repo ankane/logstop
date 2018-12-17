@@ -30,6 +30,11 @@ class LogstopTest < Minitest::Test
     assert_filtered "127.0.0.1", ip: true
   end
 
+  def test_ipv6
+    refute_filtered "2001:4860:4860:0:0:0:0:8844"
+    assert_filtered "2001:4860:4860:0:0:0:0:8844", ip: true, urlencode: false
+  end
+
   def test_url_password
     assert_filtered "https://user:pass@host", expected: "https://user:[FILTERED]@host"
     assert_filtered "https://user:pass@host.com", expected: "https://user:[FILTERED]@host.com"
@@ -97,9 +102,9 @@ class LogstopTest < Minitest::Test
     str.string.split(" : ", 2)[-1]
   end
 
-  def assert_filtered(msg, expected: "[FILTERED]", **options)
+  def assert_filtered(msg, expected: "[FILTERED]", urlencode: true, **options)
     assert_equal "begin #{expected} end\n", log(msg, **options)
-    assert_equal "begin #{expected} end\n", URI.decode_www_form_component(log(URI.encode_www_form_component(msg), **options))
+    assert_equal "begin #{expected} end\n", URI.decode_www_form_component(log(URI.encode_www_form_component(msg), **options)) if urlencode
   end
 
   def refute_filtered(msg, **options)

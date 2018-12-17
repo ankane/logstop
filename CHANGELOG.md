@@ -1,3 +1,7 @@
+## 0.2.5 [unreleased]
+
+- Added support for IPv6
+
 ## 0.2.4
 
 - Added `scubber` option for custom rules

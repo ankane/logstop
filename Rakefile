@@ -20,7 +20,7 @@ namespace :benchmark do
 
     str2 = StringIO.new
     logger2 = ::Logger.new(str2)
-    Logstop.guard(logger2)
+    Logstop.guard(logger2, ip: true)
 
     Benchmark.ips do |x|
       x.report "logger" do
