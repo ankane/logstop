@@ -1,4 +1,4 @@
-## 0.2.4 [unreleased]
+## 0.2.4
 
 - Added `scubber` option for custom rules
 - Scrub URL-encoded data
