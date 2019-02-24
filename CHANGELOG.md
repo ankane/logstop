@@ -1,3 +1,7 @@
+## 0.2.5 [unreleased]
+
+- Fixed filtering UUIDs
+
 ## 0.2.4
 
 - Added `scubber` option for custom rules
