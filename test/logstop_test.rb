@@ -17,6 +17,7 @@ class LogstopTest < Minitest::Test
     assert_filtered "4242-4242-4242-4242"
     assert_filtered "4242 4242 4242 4242"
     assert_filtered "4242424242424242"
+    refute_filtered "0242424242424242"
     refute_filtered "55555555-5555-5555-5555-555555555555" # uuid
   end
 

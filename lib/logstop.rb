@@ -6,8 +6,8 @@ module Logstop
   FILTERED_STR = "[FILTERED]".freeze
   FILTERED_URL_STR = "\\1[FILTERED]@".freeze
 
-  CREDIT_CARD_REGEX = /\b\d{16}\b/
-  CREDIT_CARD_REGEX_DELIMITERS = /\b\d{4}[\s+-]\d{4}[\s+-]\d{4}[\s+-]\d{4}\b/
+  CREDIT_CARD_REGEX = /\b[3456]\d{15}\b/
+  CREDIT_CARD_REGEX_DELIMITERS = /\b[3456]\d{3}[\s+-]\d{4}[\s+-]\d{4}[\s+-]\d{4}\b/
   EMAIL_REGEX = /\b[\w][\w+.-]+(@|%40)[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\b/i
   IP_REGEX = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/
   PHONE_REGEX = /\b(\+\d{1,2}\s)?\(?\d{3}\)?[\s+.-]\d{3}[\s+.-]\d{4}\b/
