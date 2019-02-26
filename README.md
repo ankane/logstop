@@ -77,13 +77,13 @@ It supports the same options as `guard`.
 
 This should be used in addition to `config.filtered_parameters`, not as a replacement.
 
-To scrub existing log files, check out [scrubadub](https://github.com/datascopeanalytics/scrubadub).
-
-To anonymize IP addresses, check out [IP Anonymizer](https://github.com/ankane/ip_anonymizer).
-
-To scan for unencrypted personal data in your database, check out [pdscan](https://github.com/ankane/pdscan).
-
 Learn more about [securing sensitive data in Rails](https://ankane.org/sensitive-data-rails).
+
+Also:
+
+- To scrub existing log files, check out [scrubadub](https://github.com/datascopeanalytics/scrubadub)
+- To anonymize IP addresses, check out [IP Anonymizer](https://github.com/ankane/ip_anonymizer)
+- To scan for unencrypted personal data in your database, check out [pdscan](https://github.com/ankane/pdscan)
 
 ## Resources
 
