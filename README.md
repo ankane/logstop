@@ -81,6 +81,8 @@ To scrub existing log files, check out [scrubadub](https://github.com/datascopea
 
 To anonymize IP addresses, check out [IP Anonymizer](https://github.com/ankane/ip_anonymizer).
 
+To scan for unencrypted personal data in your database, check out [pdscan](https://github.com/ankane/pdscan).
+
 Learn more about [securing sensitive data in Rails](https://ankane.org/sensitive-data-rails).
 
 ## Resources
