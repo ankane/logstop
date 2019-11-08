@@ -1,3 +1,7 @@
+## 0.2.6 [unreleased]
+
+- Reduced allocations
+
 ## 0.2.5
 
 - Fixed filtering UUIDs
