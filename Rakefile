@@ -56,6 +56,7 @@ namespace :benchmark do
         logger.info "This is a string"
       end
     end
+    puts "No Logstop"
     report.pretty_print(print_options)
 
     report = MemoryProfiler.report do
@@ -63,6 +64,7 @@ namespace :benchmark do
         logger2.info "This is a string"
       end
     end
+    puts "Logstop"
     report.pretty_print(print_options)
   end
 
