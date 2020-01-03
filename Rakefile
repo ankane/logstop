@@ -14,6 +14,7 @@ namespace :benchmark do
     require "bundler/setup"
     Bundler.require
     require "benchmark/ips"
+    require "stringio"
 
     str = StringIO.new
     logger = ::Logger.new(str)
@@ -37,6 +38,7 @@ namespace :benchmark do
     require "bundler/setup"
     Bundler.require
     require "memory_profiler"
+    require "stringio"
 
     str = StringIO.new
     logger = ::Logger.new(str)
@@ -72,6 +74,7 @@ namespace :benchmark do
     require "bundler/setup"
     Bundler.require
     require "benchmark/ips"
+    require "stringio"
 
     msg = "I, [2018-12-10T14:49:12.209047 #56045]  INFO -- : This is a string"
 
