@@ -14,20 +14,22 @@ namespace :benchmark do
     require "bundler/setup"
     Bundler.require
     require "benchmark/ips"
+    require "stringio"
 
     str = StringIO.new
     logger = ::Logger.new(str)
+    Logstop.guard(logger)
 
     str2 = StringIO.new
     logger2 = ::Logger.new(str2)
     Logstop.guard(logger2, ip: true)
 
     Benchmark.ips do |x|
-      x.report "logger" do
+      x.report "no ipv6" do
         logger.info "This is a string"
       end
 
-      x.report "logger2" do
+      x.report "ipv6" do
         logger2.info "This is a string"
       end
     end
