@@ -1,10 +1,8 @@
-dist: xenial
+dist: bionic
 language: ruby
-rvm: 2.5.3
+rvm: 2.7
 gemfile:
   - Gemfile
-sudo: false
-before_install: gem install bundler
 script: bundle exec rake test
 notifications:
   email:
