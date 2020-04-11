@@ -1,4 +1,4 @@
-## 0.2.6 [unreleased]
+## 0.2.6 (2020-04-10)
 
 - Reduced allocations
 
