@@ -23,7 +23,7 @@ User Load (0.1ms)  SELECT "users".* FROM "users" WHERE "users"."email" = ?  [["e
 
 Works even when sensitive data is URL-encoded
 
-[![Build Status](https://travis-ci.org/ankane/logstop.svg?branch=master)](https://travis-ci.org/ankane/logstop)
+[![Build Status](https://github.com/ankane/logstop/workflows/build/badge.svg?branch=master)](https://github.com/ankane/logstop/actions)
 
 ## Installation
 
