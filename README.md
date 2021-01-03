@@ -41,11 +41,13 @@ Logstop.guard(logger)
 
 ### Rails
 
-Create `config/initializers/logstop.rb` with:
+Generate the default configuration file into `config/initializers/logstop.rb` directory with:
 
 ```ruby
-Logstop.guard(Rails.logger)
+rails generate logstop:config
 ```
+
+Use this file with options below.
 
 ## Options
 
@@ -54,6 +56,14 @@ To scrub IP addresses, use:
 ```ruby
 Logstop.guard(logger, ip: true)
 ```
+
+To scrub Active Record attributes, use:
+
+```ruby
+Logstop.guard(logger, active_record: true)
+```
+
+and list their names using `Logstop.configure` method in `logstop` initializer.
 
 Add custom rules with:
 
