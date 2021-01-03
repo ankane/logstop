@@ -15,7 +15,7 @@ By default, scrubs:
 - Social Security numbers (SSNs)
 - passwords in URLs
 
-Works with all types of logging - Ruby, ActiveRecord, ActiveJob, and more
+Works with all types of logging - Ruby, Active Record, Active Job, and more
 
 ```
 User Load (0.1ms)  SELECT "users".* FROM "users" WHERE "users"."email" = ?  [["email", "[FILTERED]"]]
