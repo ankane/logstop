@@ -5,8 +5,8 @@ module Logstop
     def initialize(formatter = nil, ip: false, scrubber: nil, active_record: false)
       @formatter = formatter || ::Logger::Formatter.new
       @ip = ip
-			@scrubber = scrubber
-			@active_record = active_record
+      @scrubber = scrubber
+      @active_record = active_record
     end
 
     def call(severity, timestamp, progname, msg)

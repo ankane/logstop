@@ -37,25 +37,25 @@ module Logstop
   def self.guard(logger, **options)
     logger.formatter = Logstop::Formatter.new(logger.formatter, **options)
   end
-	
+  
   def self.scrub_attributes(msg)
-		Logstop.config.scrub_attributes.each do |attribute_name|
-			next if attribute_scrubbed?(msg, attribute_name)
-	
-			msg.gsub!(attribute_regex(attribute_name), filtered_attribute_str(attribute_name))
-		end
-		msg
-	end
-	
-	def self.attribute_scrubbed?(msg, attribute_name)
-		msg.include? filtered_attribute_str(attribute_name)
-	end
-	
-	def self.attribute_regex(attribute_name)
-		/\["#{attribute_name}", [^\[,]*/
-	end
-	
-	def self.filtered_attribute_str(attribute_name)
-		"[\"#{attribute_name}\", \"#{FILTERED_STR}\"]"
-	end
+    Logstop.config.scrub_attributes.each do |attribute_name|
+      next if attribute_scrubbed?(msg, attribute_name)
+  
+      msg.gsub!(attribute_regex(attribute_name), filtered_attribute_str(attribute_name))
+    end
+    msg
+  end
+  
+  def self.attribute_scrubbed?(msg, attribute_name)
+    msg.include? filtered_attribute_str(attribute_name)
+  end
+  
+  def self.attribute_regex(attribute_name)
+    /\["#{attribute_name}", [^\[,]*/
+  end
+  
+  def self.filtered_attribute_str(attribute_name)
+    "[\"#{attribute_name}\", \"#{FILTERED_STR}\"]"
+  end
 end
