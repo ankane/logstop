@@ -27,7 +27,7 @@ module Logstop
     msg.gsub!(SSN_REGEX, FILTERED_STR)
 
     msg.gsub!(IP_REGEX, FILTERED_STR) if ip
-    scrub_active_record_attributes(msg) if active_record
+    scrub_attributes(msg) if active_record
 
     msg = scrubber.call(msg) if scrubber
 
@@ -38,7 +38,7 @@ module Logstop
     logger.formatter = Logstop::Formatter.new(logger.formatter, **options)
   end
 	
-  def self.scrub_active_record_attributes(msg)
+  def self.scrub_attributes(msg)
 		Logstop.config.scrub_attributes.each do |attribute_name|
 			next if attribute_scrubbed?(msg, attribute_name)
 	
