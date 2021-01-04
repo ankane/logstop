@@ -3,11 +3,13 @@ require_relative "test_helper"
 class LogstopTest < Minitest::Test
   def test_email
     assert_filtered "test@example.org"
+    assert_filtered "test123@example.org"
     assert_filtered "TEST@example.org"
     assert_filtered "test@sub.example.org"
     assert_filtered "test@sub.sub2.example.org"
     assert_filtered "test+test@example.org"
     assert_filtered "test.test@example.org"
+    assert_filtered "test-test@example.org"
     assert_filtered "test@example.us"
     assert_filtered "test@example.science"
   end
