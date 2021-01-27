@@ -75,7 +75,7 @@ It supports the same options as `guard`.
 
 ## Notes
 
-This should be used in addition to `config.filtered_parameters`, not as a replacement.
+This should be used in addition to `config.filter_parameters`, not as a replacement.
 
 Learn more about [securing sensitive data in Rails](https://ankane.org/sensitive-data-rails).
 
