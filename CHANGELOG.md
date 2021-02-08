@@ -1,4 +1,4 @@
-## 0.2.7 (unreleased)
+## 0.2.7 (2021-02-08)
 
 - Fixed filtering for URL-encoded emails with `+`
 
