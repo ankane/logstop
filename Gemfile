@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-# Specify your gem's dependencies in logstop.gemspec
 gemspec
+
+gem "activesupport"
+gem "benchmark-ips"
+gem "memory_profiler"
+gem "minitest"
+gem "rake"
