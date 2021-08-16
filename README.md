@@ -21,7 +21,7 @@ Works with all types of logging - Ruby, Active Record, Active Job, and more
 User Load (0.1ms)  SELECT "users".* FROM "users" WHERE "users"."email" = ?  [["email", "[FILTERED]"]]
 ```
 
-Works even when sensitive data is URL-encoded
+Works even when sensitive data is URL-encoded with plus encoding
 
 [![Build Status](https://github.com/ankane/logstop/workflows/build/badge.svg?branch=master)](https://github.com/ankane/logstop/actions)
 
@@ -49,7 +49,7 @@ Logstop.guard(Rails.logger)
 
 ## Options
 
-To scrub IP addresses, use:
+To scrub IP addresses (IPv4), use:
 
 ```ruby
 Logstop.guard(logger, ip: true)
