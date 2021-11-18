@@ -12,6 +12,16 @@ class LogstopTest < Minitest::Test
     assert_filtered "test-test@example.org"
     assert_filtered "test@example.us"
     assert_filtered "test@example.science"
+    refute_filtered "test@example.org", email: false
+    refute_filtered "test123@example.org", email: false
+    refute_filtered "TEST@example.org", email: false
+    refute_filtered "test@sub.example.org", email: false
+    refute_filtered "test@sub.sub2.example.org", email: false
+    refute_filtered "test+test@example.org", email: false
+    refute_filtered "test.test@example.org", email: false
+    refute_filtered "test-test@example.org", email: false
+    refute_filtered "test@example.us", email: false
+    refute_filtered "test@example.science", email: false
   end
 
   def test_phone
@@ -19,6 +29,9 @@ class LogstopTest < Minitest::Test
     assert_filtered "555 555 5555"
     assert_filtered "555.555.5555"
     refute_filtered "5555555555"
+    refute_filtered "555-555-5555", phone: false
+    refute_filtered "555 555 5555", phone: false
+    refute_filtered "555.555.5555", phone: false
   end
 
   def test_credit_card
@@ -27,12 +40,17 @@ class LogstopTest < Minitest::Test
     assert_filtered "4242424242424242"
     refute_filtered "0242424242424242"
     refute_filtered "55555555-5555-5555-5555-555555555555" # uuid
+    refute_filtered "4242-4242-4242-4242", credit_card: false
+    refute_filtered "4242 4242 4242 4242", credit_card: false
+    refute_filtered "4242424242424242", credit_card: false
   end
 
   def test_ssn
     assert_filtered "123-45-6789"
     assert_filtered "123 45 6789"
     refute_filtered "123456789"
+    refute_filtered "123-45-6789", ssn: false
+    refute_filtered "123 45 6789", ssn: false
   end
 
   def test_ip
@@ -43,6 +61,8 @@ class LogstopTest < Minitest::Test
   def test_url_password
     assert_filtered "https://user:pass@host", expected: "https://user:[FILTERED]@host"
     assert_filtered "https://user:pass@host.com", expected: "https://user:[FILTERED]@host.com"
+    refute_filtered "https://user:pass@host", password: false
+    refute_filtered "https://user:pass@host.com", password: false, email: false
   end
 
   def test_scrub

@@ -15,6 +15,15 @@ By default, scrubs:
 - Social Security numbers (SSNs)
 - passwords in URLs
 
+To disable any of the default scrubs above, use:
+```ruby
+Logstop.guard(logger, email: false)
+Logstop.guard(logger, phone: false)
+Logstop.guard(logger, credit_card: false)
+Logstop.guard(logger, ssn: false)
+Logstop.guard(logger, password: false)
+```
+
 Works with all types of logging - Ruby, Active Record, Active Job, and more
 
 ```
