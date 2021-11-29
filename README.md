@@ -21,7 +21,7 @@ Logstop.guard(logger, email: false)
 Logstop.guard(logger, phone: false)
 Logstop.guard(logger, credit_card: false)
 Logstop.guard(logger, ssn: false)
-Logstop.guard(logger, password: false)
+Logstop.guard(logger, url_password: false)
 ```
 
 Works with all types of logging - Ruby, Active Record, Active Job, and more
