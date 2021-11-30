@@ -1,3 +1,7 @@
+## 0.2.8 (unreleased)
+
+- Added support for disabling default rules
+
 ## 0.2.7 (2021-02-08)
 
 - Fixed filtering for URL-encoded emails with `+`
