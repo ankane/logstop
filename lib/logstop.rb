@@ -20,8 +20,10 @@ module Logstop
     # order filters are applied is important
     msg.gsub!(URL_PASSWORD_REGEX, FILTERED_URL_STR) if url_password
     msg.gsub!(EMAIL_REGEX, FILTERED_STR) if email
-    msg.gsub!(CREDIT_CARD_REGEX, FILTERED_STR) if credit_card
-    msg.gsub!(CREDIT_CARD_REGEX_DELIMITERS, FILTERED_STR) if credit_card
+    if credit_card
+      msg.gsub!(CREDIT_CARD_REGEX, FILTERED_STR)
+      msg.gsub!(CREDIT_CARD_REGEX_DELIMITERS, FILTERED_STR)
+    end
     msg.gsub!(PHONE_REGEX, FILTERED_STR) if phone
     msg.gsub!(SSN_REGEX, FILTERED_STR) if ssn
     msg.gsub!(IP_REGEX, FILTERED_STR) if ip
