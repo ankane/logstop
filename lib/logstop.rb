@@ -24,7 +24,6 @@ module Logstop
     msg.gsub!(CREDIT_CARD_REGEX_DELIMITERS, FILTERED_STR) if credit_card
     msg.gsub!(PHONE_REGEX, FILTERED_STR) if phone
     msg.gsub!(SSN_REGEX, FILTERED_STR) if ssn
-
     msg.gsub!(IP_REGEX, FILTERED_STR) if ip
 
     msg = scrubber.call(msg) if scrubber
