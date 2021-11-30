@@ -1,4 +1,4 @@
-## 0.2.8 (unreleased)
+## 0.2.8 (2021-11-30)
 
 - Added support for disabling default rules
 

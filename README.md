@@ -65,7 +65,7 @@ end
 Logstop.guard(logger, scrubber: scrubber)
 ```
 
-Disable default rules with: [unreleased]
+Disable default rules with:
 
 ```ruby
 Logstop.guard(logger,
