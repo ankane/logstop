@@ -68,6 +68,8 @@ class LogstopTest < Minitest::Test
   end
 
   def test_tagged_logging
+    require "active_support/all"
+
     str = StringIO.new
     logger = ActiveSupport::Logger.new(str)
     logger = ActiveSupport::TaggedLogging.new(logger)
