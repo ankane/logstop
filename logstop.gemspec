@@ -3,7 +3,7 @@ require_relative "lib/logstop/version"
 Gem::Specification.new do |spec|
   spec.name          = "logstop"
   spec.version       = Logstop::VERSION
-  spec.summary       = "Keep personally identifiable information (PII) out of your logs"
+  spec.summary       = "Keep personal data out of your logs"
   spec.homepage      = "https://github.com/ankane/logstop"
   spec.license       = "MIT"
 
