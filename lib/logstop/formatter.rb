@@ -2,7 +2,7 @@ require "logger"
 
 module Logstop
   class Formatter < ::Logger::Formatter
-    def initialize(formatter = nil, url_password: true, email: true, credit_card: true, phone: true, ssn: true, ip: false, scrubber: nil)
+    def initialize(formatter = nil, url_password: true, email: true, credit_card: true, phone: true, ssn: true, ip: false, mac: false, scrubber: nil)
       @formatter = formatter || ::Logger::Formatter.new
       @url_password = url_password
       @email = email
@@ -10,6 +10,7 @@ module Logstop
       @phone = phone
       @ssn = ssn
       @ip = ip
+      @mac = mac
       @scrubber = scrubber
     end
 
@@ -22,6 +23,7 @@ module Logstop
         phone: @phone,
         ssn: @ssn,
         ip: @ip,
+        mac: @mac,
         scrubber: @scrubber
       )
     end

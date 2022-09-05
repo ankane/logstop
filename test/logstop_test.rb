@@ -58,6 +58,13 @@ class LogstopTest < Minitest::Test
     refute_filtered "https://user:pass@host", url_password: false
   end
 
+  def test_mac
+    refute_filtered "ff:ff:ff:ff:ff:ff"
+    assert_filtered "ff:ff:ff:ff:ff:ff", mac: true
+    assert_filtered "a1:b2:c3:d4:e5:f6", mac: true
+    assert_filtered "A1:B2:C3:D4:E5:F6", mac: true
+  end
+
   def test_scrub
     assert_equal "[FILTERED]", Logstop.scrub("test@example.org")
   end

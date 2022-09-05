@@ -14,8 +14,9 @@ module Logstop
   E164_PHONE_REGEX = /(?:\+|%2B)[1-9]\d{6,14}\b/
   SSN_REGEX = /\b\d{3}[\s+-]\d{2}[\s+-]\d{4}\b/
   URL_PASSWORD_REGEX = /((?:\/\/|%2F%2F)\S+(?::|%3A))\S+(@|%40)/
+  MAC_REGEX = /\b[0-9a-f]{2}(?:(?::|%3A)[0-9a-f]{2}){5}\b/i
 
-  def self.scrub(msg, url_password: true, email: true, credit_card: true, phone: true, ssn: true, ip: false, scrubber: nil)
+  def self.scrub(msg, url_password: true, email: true, credit_card: true, phone: true, ssn: true, ip: false, mac: false, scrubber: nil)
     msg = msg.to_s.dup
 
     # order filters are applied is important
@@ -31,6 +32,7 @@ module Logstop
     end
     msg.gsub!(SSN_REGEX, FILTERED_STR) if ssn
     msg.gsub!(IP_REGEX, FILTERED_STR) if ip
+    msg.gsub!(MAC_REGEX, FILTERED_STR) if mac
 
     msg = scrubber.call(msg) if scrubber
 
