@@ -30,7 +30,7 @@ Works even when sensitive data is URL-encoded with plus encoding
 Add this line to your application’s Gemfile:
 
 ```ruby
-gem 'logstop'
+gem "logstop"
 ```
 
 And add it to your logger:
