@@ -11,6 +11,7 @@ module Logstop
   EMAIL_REGEX = /\b[\w]([\w+.-]|%2B)+(?:@|%40)[a-z\d-]+(?:\.[a-z\d-]+)*\.[a-z]+\b/i
   IP_REGEX = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/
   PHONE_REGEX = /\b(?:\+\d{1,2}\s)?\(?\d{3}\)?[\s+.-]\d{3}[\s+.-]\d{4}\b/
+  E164_PHONE_REGEX = /(?:\+|%2B)[1-9]\d{6,14}\b/
   SSN_REGEX = /\b\d{3}[\s+-]\d{2}[\s+-]\d{4}\b/
   URL_PASSWORD_REGEX = /((?:\/\/|%2F%2F)\S+(?::|%3A))\S+(@|%40)/
 
@@ -24,7 +25,10 @@ module Logstop
       msg.gsub!(CREDIT_CARD_REGEX, FILTERED_STR)
       msg.gsub!(CREDIT_CARD_REGEX_DELIMITERS, FILTERED_STR)
     end
-    msg.gsub!(PHONE_REGEX, FILTERED_STR) if phone
+    if phone
+      msg.gsub!(E164_PHONE_REGEX, FILTERED_STR)
+      msg.gsub!(PHONE_REGEX, FILTERED_STR)
+    end
     msg.gsub!(SSN_REGEX, FILTERED_STR) if ssn
     msg.gsub!(IP_REGEX, FILTERED_STR) if ip
 

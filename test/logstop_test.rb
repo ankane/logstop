@@ -21,6 +21,14 @@ class LogstopTest < Minitest::Test
     assert_filtered "555.555.5555"
     refute_filtered "5555555555"
     refute_filtered "555-555-5555", phone: false
+
+    # use 7 digit min
+    # https://stackoverflow.com/questions/14894899/what-is-the-minimum-length-of-a-valid-international-phone-number
+    refute_filtered "+123456"
+    assert_filtered "+1234567"
+    assert_filtered "+15555555555"
+    assert_filtered "+123456789012345"
+    refute_filtered "+1234567890123456"
   end
 
   def test_credit_card

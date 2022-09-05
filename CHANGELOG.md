@@ -1,5 +1,6 @@
 ## 0.3.0 (unreleased)
 
+- Added support for international phone numbers
 - Dropped support for Ruby < 2.7
 
 ## 0.2.8 (2021-11-30)
