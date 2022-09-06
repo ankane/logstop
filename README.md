@@ -55,7 +55,7 @@ To scrub IP addresses (IPv4), use:
 Logstop.guard(logger, ip: true)
 ```
 
-To scrub MAC addresses, use: [unreleased]
+To scrub MAC addresses, use:
 
 ```ruby
 Logstop.guard(logger, mac: true)
