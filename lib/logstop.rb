@@ -1,6 +1,6 @@
-require "logstop/formatter"
-require "logstop/railtie" if defined?(Rails)
-require "logstop/version"
+require_relative "logstop/formatter"
+require_relative "logstop/railtie" if defined?(Rails)
+require_relative "logstop/version"
 
 module Logstop
   FILTERED_STR = "[FILTERED]".freeze
