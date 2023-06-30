@@ -56,6 +56,7 @@ class LogstopTest < Minitest::Test
     assert_filtered "https://user:pass@host", expected: "https://user:[FILTERED]@host"
     assert_filtered "https://user:pass@host.com", expected: "https://user:[FILTERED]@host.com"
     refute_filtered "https://user:pass@host", url_password: false
+    refute_filtered "https://host:80/test@", encoded: false
   end
 
   def test_mac
@@ -129,9 +130,9 @@ class LogstopTest < Minitest::Test
     str.string.split(" : ", 2)[-1]
   end
 
-  def assert_filtered(msg, expected: "[FILTERED]", **options)
+  def assert_filtered(msg, expected: "[FILTERED]", encoded: true, **options)
     assert_equal "begin #{expected} end\n", log(msg, **options)
-    assert_equal "begin #{expected} end\n", URI.decode_www_form_component(log(URI.encode_www_form_component(msg), **options))
+    assert_equal "begin #{expected} end\n", URI.decode_www_form_component(log(URI.encode_www_form_component(msg), **options)) if encoded
   end
 
   def refute_filtered(msg, **options)

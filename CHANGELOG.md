@@ -1,3 +1,7 @@
+## 0.3.1 (unreleased)
+
+- Reduced greediness of URL password filtering
+
 ## 0.3.0 (2022-09-06)
 
 - Added support for international phone numbers
