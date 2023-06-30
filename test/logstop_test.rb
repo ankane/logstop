@@ -57,6 +57,7 @@ class LogstopTest < Minitest::Test
     assert_filtered "https://user:pass@host.com", expected: "https://user:[FILTERED]@host.com"
     refute_filtered "https://user:pass@host", url_password: false
     refute_filtered "https://host:80/test@", encoded: false
+    refute_filtered "https://host:80/:test@", encoded: false
   end
 
   def test_mac

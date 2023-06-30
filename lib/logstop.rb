@@ -13,7 +13,7 @@ module Logstop
   PHONE_REGEX = /\b(?:\+\d{1,2}\s)?\(?\d{3}\)?[\s+.-]\d{3}[\s+.-]\d{4}\b/
   E164_PHONE_REGEX = /(?:\+|%2B)[1-9]\d{6,14}\b/
   SSN_REGEX = /\b\d{3}[\s+-]\d{2}[\s+-]\d{4}\b/
-  URL_PASSWORD_REGEX = /((?:\/\/|%2F%2F)\S+(?::|%3A))[^\s\/]+(@|%40)/
+  URL_PASSWORD_REGEX = /((?:\/\/|%2F%2F)[^\s\/]+(?::|%3A))[^\s\/]+(@|%40)/
   MAC_REGEX = /\b[0-9a-f]{2}(?:(?::|%3A)[0-9a-f]{2}){5}\b/i
 
   def self.scrub(msg, url_password: true, email: true, credit_card: true, phone: true, ssn: true, ip: false, mac: false, scrubber: nil)
