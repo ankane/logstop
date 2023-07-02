@@ -1,6 +1,6 @@
 ## 0.3.1 (unreleased)
 
-- Reduced greediness of URL password filtering
+- Reduced false matches for URL passwords
 
 ## 0.3.0 (2022-09-06)
 
