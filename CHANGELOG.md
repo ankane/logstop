@@ -1,4 +1,4 @@
-## 0.3.1 (unreleased)
+## 0.3.1 (2023-07-02)
 
 - Reduced false matches for URL passwords
 
