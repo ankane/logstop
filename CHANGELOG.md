@@ -1,3 +1,7 @@
+## 0.4.0 (unreleased)
+
+- Dropped support for Ruby < 3.1
+
 ## 0.3.1 (2023-07-02)
 
 - Reduced false matches for URL passwords
