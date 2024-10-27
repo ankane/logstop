@@ -99,7 +99,7 @@ class LogstopTest < Minitest::Test
 
   def test_scubber
     scubber = lambda do |msg|
-      msg.gsub(/hello/, "[FILTERED]")
+      msg.gsub("hello", "[FILTERED]")
     end
 
     assert_filtered "hello", scrubber: scubber
@@ -123,20 +123,20 @@ class LogstopTest < Minitest::Test
 
   private
 
-  def log(msg, **options)
+  def log(msg, **)
     str = StringIO.new
     logger = Logger.new(str)
-    Logstop.guard(logger, **options)
+    Logstop.guard(logger, **)
     logger.info "begin #{msg} end"
     str.string.split(" : ", 2)[-1]
   end
 
-  def assert_filtered(msg, expected: "[FILTERED]", encoded: true, **options)
-    assert_equal "begin #{expected} end\n", log(msg, **options)
-    assert_equal "begin #{expected} end\n", URI.decode_www_form_component(log(URI.encode_www_form_component(msg), **options)) if encoded
+  def assert_filtered(msg, expected: "[FILTERED]", encoded: true, **)
+    assert_equal "begin #{expected} end\n", log(msg, **)
+    assert_equal "begin #{expected} end\n", URI.decode_www_form_component(log(URI.encode_www_form_component(msg), **)) if encoded
   end
 
-  def refute_filtered(msg, **options)
-    assert_filtered msg, expected: msg, **options
+  def refute_filtered(msg, **)
+    assert_filtered(msg, expected: msg, **)
   end
 end

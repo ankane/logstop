@@ -39,7 +39,7 @@ module Logstop
     msg
   end
 
-  def self.guard(logger, **options)
-    logger.formatter = Logstop::Formatter.new(logger.formatter, **options)
+  def self.guard(logger, **)
+    logger.formatter = Logstop::Formatter.new(logger.formatter, **)
   end
 end

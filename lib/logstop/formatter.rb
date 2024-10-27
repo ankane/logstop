@@ -29,8 +29,12 @@ module Logstop
     end
 
     # for tagged logging
-    def method_missing(method_name, *arguments, &block)
-      @formatter.send(method_name, *arguments, &block)
+    def method_missing(method_name, ...)
+      @formatter.send(method_name, ...)
+    end
+
+    def respond_to_missing?(method, include_private = false)
+      @formatter.respond_to?(method) || super
     end
 
     # for tagged logging
