@@ -34,8 +34,8 @@ module Logstop
     end
 
     # for tagged logging
-    def respond_to?(method_name, include_private = false)
-      @formatter.send(:respond_to?, method_name, include_private) || super
+    def respond_to_missing?(method_name, include_private = false)
+      @formatter.respond_to?(method_name, include_private) || super
     end
   end
 end
