@@ -14,4 +14,6 @@ Gem::Specification.new do |spec|
   spec.require_path  = "lib"
 
   spec.required_ruby_version = ">= 3.1"
+
+  spec.add_dependency "logger"
 end
