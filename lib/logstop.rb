@@ -1,3 +1,4 @@
+# modules
 require_relative "logstop/formatter"
 require_relative "logstop/railtie" if defined?(Rails)
 require_relative "logstop/version"
