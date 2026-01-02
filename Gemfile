@@ -2,8 +2,8 @@ source "https://rubygems.org"
 
 gemspec
 
+gem "rake"
+gem "minitest"
 gem "activesupport"
 gem "benchmark-ips", require: false
 gem "memory_profiler"
-gem "minitest"
-gem "rake"
