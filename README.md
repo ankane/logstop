@@ -105,7 +105,7 @@ Also:
 
 ## Resources
 
-- [List of PII, as defined by NIST](https://en.wikipedia.org/wiki/Personally_identifiable_information#NIST_definition)
+- [List of PII, as defined by NIST](https://en.wikipedia.org/wiki/Personal_data#NIST_definition)
 
 ## History
 
