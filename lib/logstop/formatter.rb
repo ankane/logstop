@@ -1,5 +1,3 @@
-require "logger"
-
 module Logstop
   class Formatter < ::Logger::Formatter
     def initialize(formatter = nil, url_password: true, email: true, credit_card: true, phone: true, ssn: true, ip: false, mac: false, scrubber: nil)

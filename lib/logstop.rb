@@ -1,7 +1,12 @@
+# dependencies
+require "logger"
+
 # modules
 require_relative "logstop/formatter"
-require_relative "logstop/railtie" if defined?(Rails)
 require_relative "logstop/version"
+
+# integrations
+require_relative "logstop/railtie" if defined?(Rails)
 
 module Logstop
   FILTERED_STR = "[FILTERED]".freeze
